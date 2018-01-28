@@ -27,14 +27,13 @@ print("Over time, your decisions will help it analyze your Myer-Briggs personali
 menuCommand = "notbegin"
 
 while menuCommand != "begin":
-  print("Type begin to start the game")
+  print("Type begin to start the game, or credits to see who made this game")
   menuCommand = input("Navigation Selection")
   if (menuCommand == "begin"):
-      time.stop(.5)
-      print()
-      print()
       print("Preparing Simulation")
       break
+  elif menuCommand == "credits":
+     print ("Writer and Coder: Gus Kmetz, editor: Camillo Saueressig")
      
 
 
@@ -417,7 +416,7 @@ print("Writer: Gus Kmetz")
 print()
 print()
 time.sleep(1.5)
-print("Editor: Camillo Saueressig")
+print("Playtester: Camillo Saueressig")
 print()
 print()
 time.sleep(1.5)
