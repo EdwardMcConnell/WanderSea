@@ -1,4 +1,4 @@
-ll# Myers-Briggs Framework 
+# Myers-Briggs Framework 
 import time
 introCount = 0
 extraCount = 0
@@ -27,13 +27,14 @@ print("Over time, your decisions will help it analyze your Myer-Briggs personali
 menuCommand = "notbegin"
 
 while menuCommand != "begin":
-  print("Type begin to start the game, or credits to see who made this game")
+  print("Type begin to start the game")
   menuCommand = input("Navigation Selection")
   if (menuCommand == "begin"):
+      time.stop(.5)
+      print()
+      print()
       print("Preparing Simulation")
       break
-  elif menuCommand == "credits":
-     print ("Writer and Coder: Gus Kmetz, editor: Camillo Saueressig")
      
 
 
