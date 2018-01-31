@@ -43,33 +43,43 @@ print()
 print("Chapter 0 - Awakening")
 print()
 
-
+wake = 0
 print ("Sensations of sand, cool crashing of waves, wind whooshing through the trees")
 name = input("Who am I?")
+  
 print ("Yes, I am that I am, I am ... " + name)
 print()
 print ("[Type in wake]")
 time.sleep(0.5)
-input("What do you do?")
+while wake != "wake":
+  wake = input("What do you do?")
+
+
 print("The sun strikes your eyes, making you wince and blinding you until your eyes finally adjust. In front of you are azure waves that twinkle in the light. To your left and right is a line of sand that curves around behind you into the distance, behind you lies a verdant jungle that simmers with both vitality, and underneath, a sense of malevolence. The shrieks of birds echo outwards, assaulting your ears.")
 time.sleep(0.35)
 print()
-d1 = input("What would you like to do? 1 - explore the coast 2 - look for food and water")
-  
-if (d1 == "1"):
-  print("The island takes you about five minutes to walk around, and you see some small crabs skittering around, but no humans, and certainly no sight of another island. On your way back, you notice some coconuts on a nearby tree.")
-  
-elif (d1 == "2"):
-  print ("There are some coconuts on a tree near the edge of the forest, but certainly no water.")
-  
-print()
 
-d2 = input("What would you like to do? 1 - pick and eat the coconuts 2 - look for better stuff inland, they'll surely be more")
+d1 = 0
+while d1 != 1 and d1 != 2:
+  i = input("What would you like to do? 1 - explore the coast 2 - look for food and water")
+  d1 = int(i)
+  
+if (d1 == 1):
+  print("The island takes you about five minutes to walk around, and you see some small crabs skittering around, but no humans, and certainly no sight of another island. On your way back, you notice some coconuts on a nearby tree.\n")
+  
+elif (d1 == 2):
+  print ("There are some coconuts on a tree near the edge of the forest, but certainly no water.\n")
 
-if (d2 == "1"):
+d2 = 0
+while d2 !=1 and d2 != 2:
+  d2 = int(input("What would you like to do? 1 - pick and eat the coconuts 2 - look for better stuff inland, they'll surely be more"))
+
+if (d2 == 1):
   senseCount += 1
   print ("You manage to grab a coconut off a particularly short tree, ")
-  d2a = input("Do you want to head inland in search of water? y/n")
+  d2a = 0
+  while d2a != "y" and d2a != "n":
+    d2a = input("Do you want to head inland in search of water? y/n")
   if d2a == "y":
     print()
     print("You head inland, crashing through the thick undergrowth, suffering many smalls cuts and scrapes. It eventually pays off. The jungle disappears to reveal an idyllic clearing, which contained trees with delicious-looking fruit line it, a clear pool fed by a small stream, and the ruins of a ramshackle lean-to. You gorge yourself on the fruit and water.")
@@ -125,13 +135,17 @@ elif t1 == "2":
 
 # The One Who Walks Towards Omelas
 
+# part one
+d4 = 0
 print("Their leader moves forward, a heavy-set man in ragged yellow robes. 'Hello!,' he cries")
 time.sleep(.35)
 print("I am Omelas! It is nice to meet you fellow wanderer.")
 time.sleep(.35)
 print("Would you care to join us on my island? We've been hoping to meet you.")
 print()
-d4 = input("How do you respond to this? 1 - (warily) What do you mean? 2 - (openly) Hello Omelas, I'd love to join you!")
+
+while d4 != "1" and d4 != "2":
+  d4 = input("How do you respond to this? 1 - (warily) What do you mean? 2 - (openly) Hello Omelas, I'd love to join you!")
 
 print()
 
@@ -148,27 +162,42 @@ elif d4 == "2":
   print("'You're a Judge. Only an Outsider can lay judgement when such a crime has been committed, and the universe has sent you to us")
   time.sleep(.35)
 print()
-d5 = int(input("How do you respond? 1 - Very well. I am prepared. 2 - It will be a pleasure to serve, I will hear the facts and decide. 3 - No. I decline. It is not my place."))
-while d5 <= 3:
-  if d5 == 1:
+
+#d5
+
+d5 = 0
+while d5 != 1 and d5 != 2 and d5 != 3:
+  d5 = int(input("How do you respond? 1 - Very well. I am prepared. 2 - It will be a pleasure to serve, I will hear the facts and decide. 3 - No. I decline. It is not my place."))
+
+
+if d5 == 1:
    judgeCount += 1
    print("'Thank you, Judge " + name + ", it is an honor to have you here.'")
    print()
    time.sleep(.35)
    print("He leads you onto a well-concealed path in the jungle")
-  elif d5 == 2:
-    perceptCount += 1 
-    extraCount += 1
-    print("Thank you Judge " + name + ", but it is unusual that a Judge be so exuberant in their desire to judge, but who am I to do so. Follow me.")
-    print()
-    print("He leads you onto a well-concealed path in the jungle")
-    print()
-  elif d5 == 3:
-    introCount += 1 
-    break
+elif d5 == 2:
+  perceptCount += 1 
+  extraCount += 1    
+  print("Thank you Judge " + name + ", but it is unusual that a Judge be so exuberant in their desire to judge, but who am I to do so. Follow me.")
+  time.sleep(.45)
   print()
-  print("After ten minutes of walking, you come upon a cleared space housing a bustling village. Houses made of thatch and clay stand as people are working with joy. You walk by some children who, instead of working, are seemingly caught up in some game.")
+  print("He leads you onto a well-concealed path in the jungle")
   print()
+elif d5 == 3:
+  introCount += 1 
+
+
+time.sleep(.45)
+
+print()
+print("After ten minutes of walking, you come upon a cleared space housing a bustling village. Houses made of thatch and clay stand as people are working with joy. You walk by some children who, instead of working, are seemingly caught up in some game.")
+print()
+  
+
+  
+t2 = 0
+while t2 != 1 and t2 != 2:
   print("'What do you think of the children's game, Judge' Omelas asks?")
   t2 = int(input("What do you think? 1 - They should make themselves more useful. 2 - It's good that they have time to indulge their childhood fantasies."))
   print()
@@ -177,100 +206,136 @@ while d5 <= 3:
   elif t2 == 2:
     intuitCount += 1 
   print("'A fair point Judge, a fair point.'")
-  print()
-  print("He guides you to a large round building at the center of the village, where a large hole in the ceiling lets a thin line of fire-smoke out.")
-  print()
-  print("He turns 'This is the Hall of Judgement, inside you will find your trial. I am forbidden from entering the sanctum. Only you, the accused, and the Forbidden One may set foot there.'")
-  print()
-  print("'I wish you common sense in your dealings.'")
-  print()
+  
+  
+time.sleep(.35)
+print()
+print("He guides you to a large round building at the center of the village, where a large hole in the ceiling lets a thin line of fire-smoke out.")
+print()
+time.sleep(.35)
+print("He turns 'This is the Hall of Judgement, inside you will find your trial. I am forbidden from entering the sanctum. Only you, the accused, and the Forbidden One may set foot there.'")
+print()
+time.sleep(.35)
+print("'I wish you common sense in your dealings.'")
+print()
+t3 = 0
+while t3 != 1 and t3 != 2:
   t3 = int(input("How do you respond? 1 - It never leads us astray 2 - I find common sense should be questioned."))
-  print()
-  if t3 == 1:
-    senseCount += 1 
-  elif t3 == 2:
-    intuitCount += 1
+  
+print()
+if t3 == 1:
+  senseCount += 1 
+elif t3 == 2:
+  intuitCount += 1
   time.sleep(.35)
-  print("'Wisely said, my Judge.'")
-  time.sleep(.35)
-  print("'Tell me Judge, would you rather be known as a logical or sentimental person in our annals?'")
+
+print("'Wisely said, my Judge.'")
+time.sleep(.35)
+print("'Tell me Judge, would you rather be known as a logical or sentimental person in our annals?'")
+
+#ls 1
+ls1 = 0
+while ls1 != 1 and ls1 != 2:
   ls1 = int(input("1 - logical 2 - sentimental"))
-  if ls1 == 1:
-    thinkCount += 1
-  elif ls1 == 2:
-    feelCount += 1
-  print("'I shall mark it so in our annals. But enough of these serious questions, tell me, are you a cat or dog person?")
+
+print()
+if ls1 == 1:
+  thinkCount += 1
+elif ls1 == 2:
+  feelCount += 1
+
+
+time.sleep(.35)
+print("'I shall mark it so in our annals. But enough of these serious questions, tell me, are you a cat or dog person?")
+
+fave = ""
+while fave != "cat" and fave!= "dog":
   fave = input("cat/dog")
-  print("'A wise choice indeed. I wish you such good Judgement inside the Hall.'")
-  time.sleep(.35)
-  print()
-  print("You walk up the ancient steps to the hulking building. A large flame burns on the inside, and you see figures. As you approach, they become clear. A large man, fearfully sobbing with bloodied hands, a small man with a wry smile on his face, and a single chained child, stunted and deformed.")
-  print()
+
+print("'A wise choice indeed. I wish you such good Judgement inside the Hall.'")
+time.sleep(.35)
+print()
+print("You walk up the ancient steps to the hulking building. A large flame burns on the inside, and you see figures. As you approach, they become clear. A large man, fearfully sobbing with bloodied hands, a small man with a wry smile on his face, and a single chained child, stunted and deformed.")
+print()
+time.sleep(.35)
+
+t4 = 0
+while t4 != 1 and t4 != 2 and t4 != 3:
   t4 = int(input("Any judgements already? 1 - It must be the big man 2 - It must be the little man 3 - I cannot judge at this moment."))
+
+time.sleep(.35)
+if t4 == 1:
+  perceptCount += 3
+  feelCount += 1
+  print()
+  print("The big man breaks down as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the big man. The small man started laughing and turns to you. 'The Judgement is cast, Judge.' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave. ")
+  print()
+  
+elif t4 == 2:
+  perceptCount += 3
+  feelCount += 1
+  print()
+  print("The small man's smirk flies as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the small man. The big man stops sobbing and turns to you, throwing himself at your feet 'Thank you Judge!' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave.")
+  print()
+elif t4 == 3:
   time.sleep(.35)
-  if t4 == 1:
-    perceptCount += 3
-    feelCount += 1
-    print()
-    print("The big man breaks down as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the big man. The small man started laughing and turns to you. 'The Judgement is cast, Judge.' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave. ")
-    print()
-  elif t4 == 2:
-    perceptCount += 3
-    feelCount += 1
-    print()
-    print("The small man's smirk flies as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the small man. The big man stops sobbing and turns to you, throwing himself at your feet 'Thank you Judge!' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave.")
-    print()
-  elif t4 == 3:
-    time.sleep(.35)
-    judgeCount += 1
-    thinkCount += 1
-    print()
-    print("The child intones in a voice of granite,deep and old, 'One of these men have sinned. You may pardon them or doom them. The guilty one will take my place in chains.' ")
-    print()
-    time.sleep(.35)
+  judgeCount += 1
+  thinkCount += 1
+  print()
+  print("The child intones in a voice of granite,deep and old, 'One of these men have sinned. You may pardon them or doom them. The guilty one will take my place in chains.' ")
+  print()
+  time.sleep(.35)
+  t5 = 0
+  while t5 != 1 and t5 != 2 and t5 != 3 and t5 != 4:
     t5 = int(input("1 - Why are you chained? This is all wrong. 2 - The small man did it. 3 - The big man did it. 4 - You are unholy, child. Remain where you are."))
     print()
-    if t5 == 1:
-      thinkCount += 1
-      time.sleep(.35)
-      print("The child grimaces 'I am here that the others shall not be. That their joy shall be in opposition to my misery. The basis of their prosperity is my misery. Answer now, or be trapped in my place, Judge.'")
-      print()
-      time.sleep(.35)
+  
+  if t5 == 1:
+    thinkCount += 1
+    time.sleep(.35)
+    print("The child grimaces 'I am here that the others shall not be. That their joy shall be in opposition to my misery. The basis of their prosperity is my misery. Answer now, or be trapped in my place, Judge.'")
+    print()
+    time.sleep(.35)
+    judgement = 0
+    while judgement != 1 and judgement != 2 and judgement != 3 and judgement != 4:
       judgement = int(input("I understand my choice. 1 - The Big Man 2 - The Small Man 3 - You Shall Remain 4 - All Shall be Free"))
-      print()
-      time.sleep(.35)
-      if judgement == 1:
-        print("The big man breaks down as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the big man. The small man started laughing and turns to you. 'The Judgement is cast, Judge.' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave. ")
-      elif judgement == 2:
-        print("The small man's smirk flies as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the small man. The big man stops sobbing and turns to you, throwing himself at your feet 'Thank you Judge!' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave.")
-      elif judgement == 3:
-        print("The child shrieks as the chains rattle around it, wracking its weak body with spasms of agony. The big man and small man, stunned, stand and leave the room, leaving you alone with the tortured child.perceptCount += 1")
-      elif judgement == 4:
-        feelCount += 1
-        time.sleep(.35)
-        print("The chains shatter in front of you, and thunder rolls in the distance.")
-        time.sleep(.35)
-        print("Omelas runs in,'You fool, you have doomed us all! Begone from this place accursed Judge! I name you our doom, I name you " + name + ".'") 
-        time.sleep(.35)
-        print("'Leave here and never return!' ")
-        time.sleep(.35)
-    elif t5 == 2:
-      perceptCount += 1
-      print("The small man's smirk flies as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the small man. The big man stops sobbing and turns to you, throwing himself at your feet 'Thank you Judge!' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave.")
-      print()
-    elif t5 == 3:
-      perceptCount += 1
+    
+    print()
+    time.sleep(.35)
+    if judgement == 1:
       print("The big man breaks down as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the big man. The small man started laughing and turns to you. 'The Judgement is cast, Judge.' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave. ")
-      print()
-    elif t5 == 4:
-      perceptCount += 1
+    elif judgement == 2:
+      print("The small man's smirk flies as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the small man. The big man stops sobbing and turns to you, throwing himself at your feet 'Thank you Judge!' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave.")
+    elif judgement == 3:
+      print("The child shrieks as the chains rattle around it, wracking its weak body with spasms of agony. The big man and small man, stunned, stand and leave the room, leaving you alone with the tortured child.perceptCount += 1")
+    elif judgement == 4:
+      feelCount += 1
       time.sleep(.35)
-      print("The child shrieks as the chains rattle around it, wracking its weak body with spasms of agony. The big man and small man, stunned, stand and leave the room, leaving you alone with the tortured child. Finally, you walk out, the child's screams behind you")
-      perceptCount += 1
-      print()
-  time.sleep(.35)
-  print("Omelas waits. 'I pray this is the last time we meet, at least in your lifetime.'") 
-  break
+      print("The chains shatter in front of you, and thunder rolls in the distance.")
+      time.sleep(.35)
+      print("Omelas runs in,'You fool, you have doomed us all! Begone from this place accursed Judge! I name you our doom, I name you " + name + ".'") 
+      time.sleep(.35)
+      print("'Leave here and never return!' ")
+      time.sleep(.35)
+    
+  elif t5 == 2:
+    perceptCount += 1
+    print("The small man's smirk flies as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the small man. The big man stops sobbing and turns to you, throwing himself at your feet 'Thank you Judge!' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave.")
+    print()
+  elif t5 == 3:
+    perceptCount += 1
+    print("The big man breaks down as the child begins to laugh, a clap of tombstones cracking open on a cold night. The chains fall off the child and clasp themselves around the big man. The small man started laughing and turns to you. 'The Judgement is cast, Judge.' The child stands on legs thin as bone. 'So it goes' it intones, and motions for you to leave. ")
+    print()
+  elif t5 == 4:
+    perceptCount += 1
+    time.sleep(.35)
+    print("The child shrieks as the chains rattle around it, wracking its weak body with spasms of agony. The big man and small man, stunned, stand and leave the room, leaving you alone with the tortured child. Finally, you walk out, the child's screams behind you")
+    perceptCount += 1
+    print()
+
+time.sleep(.35)
+print("Omelas waits. 'I pray this is the last time we meet, at least in your lifetime.'") 
+
 
 
 time.sleep(.35)
@@ -290,11 +355,19 @@ if tools == 1:
   advantage = "equipment"
 elif research == 1:
   advantage = "farm"
+else:
+  advantage = "shelter"
+
 print("Life is uneventful on your island, as your " + advantage + " makes your life easy.")
 
+
+# Turtle Problem
 print("You come across an ancient turtle, stranded on the beach.")
-turtle = int(input("What do you do with the turtle? 1 - kill it for food 2 - place it back in the water"))
-time.sleep(.35)
+turtle = 0
+while turtle != 1 and turtle != 2:
+  turtle = int(input("What do you do with the turtle? 1 - kill it for food 2 - place it back in the water"))
+  
+time.sleep(.5)
 if turtle == 1:
   thinkCount += 1 
   print("You enjoy the warm meat for dinner that night.")
@@ -319,8 +392,12 @@ print()
 print("With people on it, preparing to leave.")
 print()
 time.sleep(1)
-print("Do you join them?")
-final = input("y/n")
+
+final = 0
+while final != "y" and final != "n":
+  print("Do you join them?")
+  final = input("y/n")
+
 if final == "y":
   print("You run up to the boat, shouting at them, just as they are about to leave.")
   time.sleep(1)
@@ -340,6 +417,8 @@ if final == "y":
     print()
     time.sleep(1)
     print("blackness")
+    
+    
   if turtle == 2:
     print("You rejoin humanity. They take you on their boat to their homeland. Along the way, you learn their language and forget the island. You live there, get married, and are much beloved. Decades after your arrival, you lie in your bed, sick, coughing. You finally sleep. In your dreams, you remember your island, Omelas, and the stranded sea turtle you saved. ")
     time.sleep(1)
